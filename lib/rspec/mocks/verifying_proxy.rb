@@ -154,7 +154,7 @@ module RSpec
       end
 
       def proxy_method_invoked(obj, *args, &block)
-        validate_arguments!(args)
+        validate_arguments!(args) unless Mocks.configuration.temporarily_suppressing_verification
         super
       end
 
